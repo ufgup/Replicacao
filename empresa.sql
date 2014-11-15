@@ -52,7 +52,7 @@ ecpf char(9) not null,
 nome_dependente varchar(20) not null,
 sexo char(1) not null,
 datanasc date not null,
-paretensco varchar(7) not null,
+parentesco varchar(7) not null,
 primary key(ecpf, nome_dependente),
 foreign key (ecpf) references funcionario (cpf));
 
@@ -112,7 +112,7 @@ ecpf char(9) not null,
 nome_dependente varchar(20) not null,
 sexo char(1) not null,
 datanasc date not null,
-paretensco varchar(7) not null,
+parentesco varchar(7) not null,
 primary key(ecpf, nome_dependente),
 foreign key (ecpf) references funcionario (cpf));
 
@@ -136,7 +136,7 @@ ON empresa.funcionario
 FOR EACH ROW
 BEGIN
 UPDATE empresa_replica.funcionario 
-SET pnome = new.pnome, minicial = new.minicial, unome = new.unome, cpf = new.cpf, datanasc = new.datanasc, endereco = new.endereco, sexo = new.sexo, salario = new.salario, supercpf = new.supercpf, dno = new.dno)
+SET pnome = new.pnome, minicial = new.minicial, unome = new.unome, cpf = new.cpf, datanasc = new.datanasc, endereco = new.endereco, sexo = new.sexo, salario = new.salario, supercpf = new.supercpf, dno = new.dno
 WHERE cpf = old.cpf;
 END$$
 
@@ -178,7 +178,7 @@ CREATE TRIGGER dept_localizacoes_insert AFTER INSERT
 ON empresa.depto_localizacoes
 FOR EACH ROW
 BEGIN
-INSERT INTO empresa_replica.depto_localizacoes(dnumero, dlocalizacao) values (new.dnumero, new.dlocalacao);
+INSERT INTO empresa_replica.depto_localizacoes(dnumero, dlocalizacao) values (new.dnumero, new.dlocalizacao);
 END$$
 
 CREATE TRIGGER depto_localizacoes_update AFTER UPDATE
@@ -262,7 +262,7 @@ ON empresa.dependente
 FOR EACH ROW
 BEGIN
 UPDATE empresa_replica.dependente 
-SET ecpf = new.ecpf, nome_dependente = new.nome_dependente, sexo = new.sexo, datanasc = new.datanasc, parentesco = new.parentesc
+SET ecpf = new.ecpf, nome_dependente = new.nome_dependente, sexo = new.sexo, datanasc = new.datanasc, parentesco = new.parentesco
 WHERE ecpf = old.ecpf and nome_dependente = old.nome_dependente;
 END$$
 
