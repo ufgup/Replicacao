@@ -1,3 +1,4 @@
+-- Arquivo de inserção
 insert into funcionario values('Jose', 'E', 'Borges', '888665555', '1937-11-10', 'Av da Palmeiras 450, Sao Carlos, SP', 'M', '55000', null, '1');
 insert into funcionario values('Francisco', 'T', 'Wendel', '333445555', '1955-12-08', 'Rua do lado 638, Franca, SP', 'M', '40000', '888665555', '5');
 insert into funcionario values('Joana', 'S', 'Pereira', '987654321', '1941-06-20', 'av Central 291, Ribeirao Preto, SP', 'F', '43000', '888665555', '4');
