@@ -1,6 +1,8 @@
-drop database empresa;
-create database empresa;
-use empresa;
+
+/* Criando a base de dados replicada */
+drop database empresa_replica;
+create database empresa_replica;
+use empresa_replica;
 create table funcionario (
 pnome varchar(20) not null,
 minicial char(1) not null,
@@ -23,6 +25,7 @@ gerdatainicio date not null,
 primary key (dnumero),
 unique(dnome),
 foreign key (gercpf) references funcionario(cpf));
+
 
 create table depto_localizacoes (
 dnumero int not null,
@@ -55,3 +58,5 @@ datanasc date not null,
 parentesco varchar(7) not null,
 primary key(ecpf, nome_dependente),
 foreign key (ecpf) references funcionario (cpf));
+
+
